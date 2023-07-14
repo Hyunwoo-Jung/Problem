@@ -1,0 +1,13 @@
+# 2) 너비 우선 탐색
+import os
+
+queue = ['C:/book/']
+
+while len(queue) > 0:
+    dir = queue.pop()
+    for i in os.listdir(dir):
+        if i == 'book':
+            print(dir + i)
+        if os.path.isdir(dir + i):
+            if os.access(dir + i, os.R_OK):
+                queue.append(dir + i + '/')
